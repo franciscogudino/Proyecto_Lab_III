@@ -454,7 +454,7 @@ aside img {
 /*Los media queries son un prototipo que se probó al final , nos pareció interesante dejarlo , pero faltan
 algunas correcciones y hacer el diseño compatible con resoluciones más bajas*/
 
-@media screen and (min-width: 680px) {
+@media screen and (max-width: 680px) {
   
 aside{
 
