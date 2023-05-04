@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Globo</title>
+    <link rel="stylesheet" type="text/css" href="desing.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
+
+
+
+</head>
+
+<body>
+    <nav>
+        <input type="Username" id="username1" class="form__input" placeholder="  Ingresa tu usuario">
+        <img src="LogoGlobo.png">
+    </nav>
+
+    <div class="row-aside">
+        <aside>
+            <div class="description">
+                <h2>Jane Doe</h2>
+                <p>
+                    <b>Email:</b> jane.doe@gmail.com<br>
+                    <b>Fecha de nacimiento:</b> 01/05/1996<br>
+                    <b>Teléfono:</b> 918-936-9585<br>
+                    <b>Ciudad:</b> Tokyo, Japón<br>
+                    Trabajando en <b>Lawn N</b>
+                </p>
+            </div>
+            <div class="fotoChica">
+                <img src="fotoChica.png">
+            </div>
+
+            <div class="submit">
+                <button type="submit" class="input_Seguir" onclick="cambiarTexto()" id="boton_seg">Seguir</button>
+            </div>
+        </aside>
+    </div>
+
+    <div class="row">
+        <div class="container1">
+            <h3>Publicado hace 6 meses</h3>
+            <div class="imgChina">
+                <img src="callejonchino.png">
+            </div>
+            <div class="boton-recuento">
+                <div class="button-like">
+                    <button type="submit" class="input_Likes shake-vertical" id="like-button"> Me gusta </button>
+                </div>
+                <div class="recuento">
+                    <span id="like-count">
+                        <b>200<b>
+                    </span>
+                    <h3>
+                        Likes
+                    </h3>
+                </div>
+            </div>
+            <div id="comments-container"></div>
+            <div class="Coment">Comentarios</div>
+            <div class="casilla-boton">
+                <div class="txtArea">
+                    <input class="agg-coment" id="comment-text" maxlength="120" placeholder=" Deja tu comentario...">
+                </div>
+                <div class="buton-coment">
+                    <button type="submit" class="input_coment" id="submit-button"> Comentar </button>
+                </div>
+            </div>
+        </div>
+        <div class="container2">
+            <h2>Sobre Mi</h2>
+            <p>Hola a todos! Soy Jane y actualmente
+                vivo en la vibrante y emocionante ciudad
+                de tokio y me encanta capturar la escencia
+                de la vida urbana a través de mi lente ,
+                explorando el contraste entre la arquitectura
+                moderna y tradiciones centenarias que conviven
+                en esta metropolis.
+                Desde rascacielos deslumbrantes y calles buillisiosas
+                hasta templos serenos y jardines tranquilos encuentro
+                inspiracion en cada rincon de esta increible ciudad.</p>
+        </div>
+    </div>
+    <script src="globo.js"></script>
+</body>
+</html>
