@@ -1,88 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Globo</title>
-    <link rel="stylesheet" type="text/css" href="desing.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/styles.css">
+    <script src="https://unpkg.com/vue@3.0.11/dist/vue.global.js"></script>
 </head>
 <body>
-    <nav>
-        <input type="Username" id="username1" class="form__input" placeholder="  Ingresa tu usuario">
-        <img src="LogoGlobo.png">
-    </nav>
-
-    <div class="row-aside">
-        <aside>
-            <div class="description">
-                <h2>Jane Doe</h2>
-                <p>
-                    <b>Email:</b> jane.doe@gmail.com<br>
-                    <b>Fecha de nacimiento:</b> 01/05/1996<br>
-                    <b>Teléfono:</b> 918-936-9585<br>
-                    <b>Ciudad:</b> Tokyo, Japón<br>
-                    Trabajando en <b>Lawn N</b>
-                </p>
+    <div id="app">
+        <header>
+            <img :src="logo" alt="Logo Globo">
+            <input id="usuario" v-model="usuario" ref="usuario" type="text" placeholder="Ingresa tu usuario...">
+        </header>
+        <main>
+            <profile-data></profile-data>
+            <div class="publicaciones">
+                <p class="fecha">Publicado hace 1 semana</p>
+                <img :src="publicacion" alt="Picture of street in Japon">
+                <div class="megusta">
+                    <button @click="darLike" :style="{ backgroundColor: fondoLike, color:textoLike }">{{botonLike}}</button>
+                    <p><span>{{likes}}</span> Likes</p>
+                </div>
+                <h4>Comentarios</h4>
+                <div class="comentarios">
+                    <p><span>Juan Perez</span>  ¡Wow, esa foto de Tokio es impresionante</p>
+                    <p><span>Kathleen J Rennie</span> ¡Esta foto de Tokio es simplemente espectaular! Me trae tantos recuerdos.</p>
+                    
+                    <mostrar-comentarios :comentarios="comentarios" :usuario="usuario"></mostrar-comentarios>
+                    <publicar-comentario :usuario="usuario" @enviar-comentario="guardarComentario" @falta-campo="datasIncompletos"></publicar-comentario>
+                </div>
             </div>
-            <div class="fotoChica">
-                <img src="fotoChIca.png">
+            <div class="sobremi">
+                <h2>Sobre mí</h2>
+                <p>{{sobremi}}</p>
             </div>
-
-            <div class="submit">
-                <button type="submit" class="input_Seguir" onclick="cambiarTexto()" id="boton_seg">Seguir</button>
-            </div>
-        </aside>
+        </main>
     </div>
 
-    <div class="row">
-        <div class="container1">
-            <h3>Publicado hace 6 meses</h3>
-            <div class="imgChina">
-                <img src="callejonchino.png">
-            </div>
-            <div class="boton-recuento">
-                <div class="button-like">
-                    <button type="submit" class="input_Likes shake-vertical" id="like-button"> Me gusta </button>
-                </div>
-                <div class="recuento">
-                    <span id="like-count">
-                        <b>200<b>
-                    </span>
-                    <h3>
-                        Likes
-                    </h3>
-                </div>
-            </div>
-            <div id="comments-container"></div>
-            <div class="Coment">Comentarios</div>
-            <div class="casilla-boton">
-                <div class="txtArea">
-                    <input class="agg-coment" id="comment-text" maxlength="120" placeholder=" Deja tu comentario...">
-                </div>
-                <div class="buton-coment">
-                    <button type="submit" class="input_coment" id="submit-button"> Comentar </button>
-                </div>
-            </div>
-        </div>
-        <div class="container2">
-            <h2>Sobre Mi</h2>
-            <p>Hola a todos! Soy Jane y actualmente
-                vivo en la vibrante y emocionante ciudad
-                de tokio y me encanta capturar la escencia
-                de la vida urbana a través de mi lente ,
-                explorando el contraste entre la arquitectura
-                moderna y tradiciones centenarias que conviven
-                en esta metropolis.
-                Desde rascacielos deslumbrantes y calles buillisiosas
-                hasta templos serenos y jardines tranquilos encuentro
-                inspiracion en cada rincon de esta increible ciudad.</p>
-        </div>
-    </div>
-    <script src="globo.js"></script>
+    <script src="main.js"></script>
+    <script src="./component/ProfileData.js"></script>
+    <script src="./component/PublicarComentario.js"></script>
+    <script src="./component/MostrarComentarios.js"></script>
+    <script>
+        const mountedApp = app.mount('#app');
+    </script>
 </body>
 </html>
